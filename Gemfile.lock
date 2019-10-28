@@ -18,7 +18,7 @@ PLATFORMS
 
 DEPENDENCIES
   fakeweb
-  httparty
+  httparty (~> 0.17.1)
   json
   minitest
   rake
