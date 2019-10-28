@@ -124,7 +124,7 @@ class WooCommerceAPITest < Minitest::Test
     response = @basic_auth.delete "products/1234?force=true"
 
     assert_equal 202, response.code
-    assert_equal '{"message":"Permanently deleted product"}', response.to_json
+    assert_equal '{"message":"Permanently deleted product"}', JSON.parse(response.to_json)
   end
 
   def test_basic_auth_delete_params
@@ -137,7 +137,7 @@ class WooCommerceAPITest < Minitest::Test
     response = @basic_auth.delete "products/1234", force: true
 
     assert_equal 202, response.code
-    assert_equal '{"message":"Permanently deleted product"}', response.to_json
+    assert_equal '{"message":"Permanently deleted product"}', JSON.parse(response.to_json)
   end
 
   def test_oauth_put
@@ -150,7 +150,7 @@ class WooCommerceAPITest < Minitest::Test
     response = @oauth.delete "products/1234?force=true"
 
     assert_equal 202, response.code
-    assert_equal '{"message":"Permanently deleted product"}', response.to_json
+    assert_equal '{"message":"Permanently deleted product"}', JSON.parse(response.to_json)
   end
 
   def test_adding_query_params
@@ -159,7 +159,7 @@ class WooCommerceAPITest < Minitest::Test
   end
 
   def test_invalid_signature_method
-    assert_raises WooCommerce::OAuth::InvalidSignatureMethodError do 
+    assert_raises WooCommerce::OAuth::InvalidSignatureMethodError do
       client = WooCommerce::API.new("http://dev.test/", "user", "pass", signature_method: 'GARBAGE')
       client.get 'products'
     end
