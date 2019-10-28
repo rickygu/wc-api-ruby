@@ -8,7 +8,7 @@ require "woocommerce_api/version"
 Gem::Specification.new do |s|
   s.name        = "woocommerce_api"
   s.version     = WooCommerce::VERSION
-  s.date        = "2016-12-14"
+  s.date        = "2019-10-28"
 
   s.summary     = "A Ruby wrapper for the WooCommerce API"
   s.description = "This gem provide a wrapper to deal with the WooCommerce REST API"
@@ -22,6 +22,6 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.extra_rdoc_files = %w[README.md LICENSE]
 
-  s.add_runtime_dependency "httparty", "~> 0.14", ">= 0.14.0"
+  s.add_runtime_dependency "httparty", "~> 0.17.1", ">= 0.17.1"
   s.add_runtime_dependency "json", "~> 2.0", ">= 2.0.0"
 end
